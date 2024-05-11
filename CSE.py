@@ -10,6 +10,10 @@ def fix_tables(items, counts):
             counts[i] += 1
             items[i + 1] = -1
             counts[i + 1] = -1
+        elif items[i] == 0 and counts[i + 1] == 1 and counts[i + 1] > 1 and i != 0:
+            counts[i - 1] += 1
+            items[i] = -1
+            counts[i] = -1
         elif items[i] == 1 and counts[i] == 1 and counts[i + 1] == 1 and i != 0:
             counts[i] += 1
             items[i + 1] = -1
@@ -115,7 +119,7 @@ def convert_string_to_expression(string):
     return result
 
 
-numbers = [255,19,166,23,13]
+numbers = [255, 19, 166, 23, 13, 168, 687, 1268, 15555]
 items = []
 
 for number in numbers:
