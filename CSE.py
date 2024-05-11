@@ -70,7 +70,7 @@ def CSE(number):
             result += str(counts[i])
             if i < len(itemX) - 1:
                 result += ' + 1 '
-            elif number[-1] == 1 and number[-2] == 0:
+            if number[-1] == 1 and number[-2] == 0:
                 result += ' + 1 '
 
         elif itemX[i] == 1 and counts[i] > 1:
@@ -86,11 +86,6 @@ def CSE(number):
 
         if i != len(itemX) - 1:
             result += '<< '
-
-        if number[len(number) - 1] != 0 and number[len(number) - 2] == 0:
-            result += ' + 1'
-
-
 
     return result
 
@@ -120,7 +115,7 @@ def convert_string_to_expression(string):
     return result
 
 
-numbers = [255,19,166,23,76]
+numbers = [255,19,166,23,13]
 items = []
 
 for number in numbers:
